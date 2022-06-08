@@ -1,11 +1,12 @@
 require("dotenv").config();
-const { User } = require("./models");
+const { User, Thought } = require("./models");
 const express = require("express");
 const app = express();
 
 const port = process.env.PORT || 5000;
 
 app.use(User);
+app.use(Thought);
 
 app.listen(port, (err) => {
   console.log(

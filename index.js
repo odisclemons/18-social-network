@@ -13,10 +13,13 @@ app.use(express.json());
 app.use(routes);
 
 db.once("open", () => {
-  console.log("connected to db");
+  console.log(db.port);
+  console.log(`Mongoose connected to ${db.name} on port ${db.port}...`);
   app.listen(port, (err) => {
     console.log(
-      err ? `err starting server: ${err}` : `Server started on port ${port}...`
+      err
+        ? `Express err: \n ${err}`
+        : `Express server started on port ${port}...`
     );
   });
 });
